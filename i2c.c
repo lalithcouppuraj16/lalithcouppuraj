@@ -81,10 +81,9 @@ uint8_t get_output_data_rate()
 }
 
 //Function to set output data rate
-uint8_t set_output_data_rate()
+void set_output_data_rate()
 {
-    i2c_read(I2C_ADDRESS, CTRL_REG1, 1, &rate);
-    return rate;
+    i2c_write(I2C_ADDRESS, CTRL_REG1, 1, &rate);
 }
 
 //Function to enable or disable the interrupt pin
