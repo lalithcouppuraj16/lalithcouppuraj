@@ -1,34 +1,27 @@
-# AAC-Clydespace Avionics Software Challenge
-You are given the LIS3MDLTR 3-Axis Magnetometer sensor. The data sheet is
-located at `doc/lism3mdl.pdf`
+#I2C Driver for LIS3MDLTR 3-Axis Magnetometer Sensor
 
-## Task Description
-You must use the C API defined in `i2c.h` to operate on an I2C bus.
+This is a simple I2C driver implementation for the LIS3MDLTR 3-Axis Magnetometer Sensor.
 
-We provide example stub implementations of this API in `i2c.c`. You are free to
-extend the provided stub functions for the API.
+#Usage
 
-Please write a device driver that implements the following API:
-- Get the full-scale configuration
-- Get and set the output data rate
-- Enable or disable the interrupt pin
-- Read the output data of a specified axis
+1. Include the `i2c.h` header file in your project.
+2. Implement the I2C communication functions (i2c_read and i2c_write) based on the platform.
+3. Use the provided API functions to communicate with the sensor.
 
-## Development
-You are provided this minimal repository, `aac-code-challenge`, please perform
-your work on branch `<candidate_name>`
+#API Functions
 
-Documentation can be found in `aac-code-challenge/doc`
+i2c_read: reads data from the I2C bus.
+i2c_write: writes data to the I2C bus.
+get_full_scale_config: Retrieves the full-scale configuration from the sensor.
+get_output_data_rate: Retrieves the output data rate configuration from the sensor.
+set_output_data_rate: Sets the output data rate configuration of the sensor.
+interrupt_pin: Enables or disables the interrupt pin of the sensor.
+read_output_data: Reads the output data of a specified axis from the sensor.
 
-Once complete, please repackage and email back this repo to your interviewers
-
-## Scope
-You shouldn't need to spend more than a couple of hours on the task.
-
-This is not a closed book assessment.
-
-## Extra Thoughts
-If you have time, answer the following questions:
-- What changes you would make to this interfaces for use in an RTOS
+#Extra Thoughts
+What changes you would make to this interfaces for use in an RTOS
 environment?
-- How might the I2C API be improved
+Error handling can be improved a lot and the priorities to the tasks can be set using RTOS which in return improve the quality of the code. 
+
+How might the I2C API be improved?
+The API can be improved by adding additional API functions for clock stretching, bus speed and addressing modes. 
