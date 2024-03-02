@@ -67,8 +67,22 @@ status_t i2c_read(
 // }
 
 //Function to get full scale configuration from the sensor
-uint8_t get_full_scale_config ()
+uint8_t get_full_scale_config()
 {
     i2c_read(I2C_ADDRESS, CTRL_REG2, 1, &config);
     return config;
+}
+
+//Function to get output data rate
+uint8_t get_output_data_rate()
+{
+    i2c_read(I2C_ADDRESS, CTRL_REG1, 1, &rate);
+    return rate;
+}
+
+//Function to set output data rate
+uint8_t set_output_data_rate()
+{
+    i2c_read(I2C_ADDRESS, CTRL_REG1, 1, &rate);
+    return rate;
 }
