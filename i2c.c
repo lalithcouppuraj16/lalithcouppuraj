@@ -1,3 +1,11 @@
+// ****************************************************************************
+///  @file                  i2c.c
+///
+///  @brief                 LIS3MDLTR 3-Axis magnetometer API implementation
+///
+///  @author                L.COuppuraj
+// ****************************************************************************
+
 #include "i2c.h"
 
 #include <stdint.h>
