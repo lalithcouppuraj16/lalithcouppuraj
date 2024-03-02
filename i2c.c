@@ -86,3 +86,10 @@ uint8_t set_output_data_rate()
     i2c_read(I2C_ADDRESS, CTRL_REG1, 1, &rate);
     return rate;
 }
+
+//Function to enable or disable the interrupt pin
+void interrupt_pin(bool enable)
+{
+    uint8_t value = enable ? 0x01 : 0x00;
+    i2c_write(I2C_ADDRESS, INT_CFG, 1, &value);
+}
