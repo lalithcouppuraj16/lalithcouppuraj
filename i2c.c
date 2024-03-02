@@ -92,3 +92,27 @@ void interrupt_pin(bool enable)
     uint8_t value = enable ? 0x01 : 0x00;
     i2c_write(I2C_ADDRESS, INT_CFG, 1, &value);
 }
+
+//Function to read output data of a specified axis
+int16_t read_output(uint8_t axis)
+{
+    uint8_t data_low, data_high;
+    switch (axis)
+    {
+        case 'X':
+            i2c_read(I2C_ADDRESS, OUT_X_L, 1, &data_low);
+            i2c_read(I2C_ADDRESS, OUT_X_H, 1, &data_high);
+            break;
+        case 'Y':
+            i2c_read(I2C_ADDRESS, OUT_Y_L, 1, &data_low);
+            i2c_read(I2C_ADDRESS, OUT_Y_H, 1, &data_high);
+            break;
+        case 'Z':
+            i2c_read(I2C_ADDRESS, OUT_Z_L, 1, &data_low);
+            i2c_read(I2C_ADDRESS, OUT_Z_H, 1, &data_high);
+            break;
+        default:
+            return 0;
+    }
+    return (data_high << 8) | data_low; //combine the high and low bytes of the sensor output to a 16 bit integer value
+}
