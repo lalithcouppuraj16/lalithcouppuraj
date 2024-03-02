@@ -46,21 +46,29 @@ status_t i2c_read(
     return STATUS_OK;
 }
 
-status_t i2c_write(
-    uint8_t bus_address,
-    uint8_t register_address,
-    uint16_t length,
-    uint8_t *buffer)
-{
-    printf(
-        "write [%d] bytes to bus [%d] for register [%d]\n\t",
-        length,
-        bus_address,
-        register_address);
+//Stub implementations
+// status_t i2c_write(
+//     uint8_t bus_address,
+//     uint8_t register_address,
+//     uint16_t length,
+//     uint8_t *buffer)
+// {
+//     printf(
+//         "write [%d] bytes to bus [%d] for register [%d]\n\t",
+//         length,
+//         bus_address,
+//         register_address);
 
-    for (size_t i = 0; i < length; ++i) {
-        printf("%p", buffer);
-    }
-    printf("\n");
-    return STATUS_OK;
+//     for (size_t i = 0; i < length; ++i) {
+//         printf("%p", buffer);
+//     }
+//     printf("\n");
+//     return STATUS_OK;
+// }
+
+//Function to get full scale configuration from the sensor
+uint8_t get_full_scale_config ()
+{
+    i2c_read(I2C_ADDRESS, CTRL_REG2, 1, &config);
+    return config;
 }
