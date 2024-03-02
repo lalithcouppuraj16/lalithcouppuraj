@@ -3,6 +3,13 @@
 
 #include <stdint.h>
 
+#ifndef bool
+typedef enum {
+    false = 0,
+    true
+} bool;
+#endif
+
 typedef enum {
     STATUS_OK,
     STATUS_ERROR
