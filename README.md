@@ -7,6 +7,7 @@ This is a simple I2C driver implementation for the LIS3MDLTR 3-Axis Magnetometer
 1. Include the `i2c.h` header file in your project.
 2. Implement the I2C communication functions (i2c_read and i2c_write) based on the platform.
 3. Use the provided API functions to communicate with the sensor.
+4. The error handling with the status (STATUS_OK/STATUS_ERROR) can be added to all the functions. 
 
 #API Functions
 
